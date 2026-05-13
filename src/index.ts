@@ -7,7 +7,7 @@ const adapter = new PrismaPg({
   }); 
 
 import jwt from "jsonwebtoken";
-import {authmiddleware} from "./middleware";
+import {authmiddleware} from "./middleware.js";
 const client = new PrismaClient({adapter});
 const app=express();
 app.use(express.json());
