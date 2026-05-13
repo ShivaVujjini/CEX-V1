@@ -12,7 +12,7 @@ export interface PrismaClientConstructor {
    *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
    * })
    * // Fetch zero or more Users
-   * const users = await prisma.users.findMany()
+   * const users = await prisma.user.findMany()
    * ```
    *
    * Read more in our [docs](https://pris.ly/d/client).
@@ -31,7 +31,7 @@ export interface PrismaClientConstructor {
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
  * // Fetch zero or more Users
- * const users = await prisma.users.findMany()
+ * const users = await prisma.user.findMany()
  * ```
  *
  * Read more in our [docs](https://pris.ly/d/client).
@@ -118,14 +118,47 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         extArgs: ExtArgs;
     }>>;
     /**
- * `prisma.users`: Exposes CRUD operations for the **Users** model.
+ * `prisma.user`: Exposes CRUD operations for the **User** model.
   * Example usage:
   * ```ts
   * // Fetch zero or more Users
-  * const users = await prisma.users.findMany()
+  * const users = await prisma.user.findMany()
   * ```
   */
-    get users(): Prisma.UsersDelegate<ExtArgs, {
+    get user(): Prisma.UserDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.stock`: Exposes CRUD operations for the **stock** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Stocks
+      * const stocks = await prisma.stock.findMany()
+      * ```
+      */
+    get stock(): Prisma.stockDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.order`: Exposes CRUD operations for the **order** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Orders
+      * const orders = await prisma.order.findMany()
+      * ```
+      */
+    get order(): Prisma.orderDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.fills`: Exposes CRUD operations for the **fills** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Fills
+      * const fills = await prisma.fills.findMany()
+      * ```
+      */
+    get fills(): Prisma.fillsDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }

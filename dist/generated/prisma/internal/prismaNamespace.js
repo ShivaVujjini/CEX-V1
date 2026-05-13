@@ -68,7 +68,10 @@ export const JsonNull = runtime.JsonNull;
  */
 export const AnyNull = runtime.AnyNull;
 export const ModelName = {
-    Users: 'Users'
+    User: 'User',
+    stock: 'stock',
+    order: 'order',
+    fills: 'fills'
 };
 /**
  * Enums
@@ -79,10 +82,38 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
     RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
 });
-export const UsersScalarFieldEnum = {
+export const UserScalarFieldEnum = {
     id: 'id',
     username: 'username',
     password: 'password'
+};
+export const StockScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    symbol: 'symbol'
+};
+export const OrderScalarFieldEnum = {
+    id: 'id',
+    userid: 'userid',
+    market: 'market',
+    price: 'price',
+    qty: 'qty',
+    type: 'type',
+    side: 'side',
+    filled_qty: 'filled_qty',
+    Status: 'Status',
+    created_at: 'created_at'
+};
+export const FillsScalarFieldEnum = {
+    id: 'id',
+    qty: 'qty',
+    side: 'side',
+    type: 'type',
+    userid: 'userid',
+    price: 'price',
+    asset: 'asset',
+    original_order_id: 'original_order_id',
+    created_at: 'created_at'
 };
 export const SortOrder = {
     asc: 'asc',
