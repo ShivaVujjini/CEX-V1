@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import  type {Request,Response,NextFunction} from "express";
 
-function authmiddleware(req:Request,res:Response,next:NextFunction):void {
+export function authmiddleware(req:Request,res:Response,next:NextFunction):void {
     const token = req.headers.token ;
     if (!token || Array.isArray(token)){
         res.status(403).json({
@@ -18,7 +18,8 @@ function authmiddleware(req:Request,res:Response,next:NextFunction):void {
         else{
             res.status(403).json({
                 'message': "invalid token"
-            })    
+            });
+            return ;
         }
     }
     catch(e){
@@ -28,6 +29,3 @@ function authmiddleware(req:Request,res:Response,next:NextFunction):void {
     }
 }
 
-module.exports ={
-    authmiddleware : authmiddleware
-}
